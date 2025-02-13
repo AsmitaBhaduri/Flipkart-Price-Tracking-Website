@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Your additional CSS styles here */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+            /* Smooth scrolling */
+        }
+
+        .main {
+            height: 100vh;
+            /* Set main container to take up full viewport height */
+            overflow-y: scroll;
+            /* Enable vertical scrolling */
+            scroll-snap-type: y mandatory;
+            /* Enable snapping behavior */
+            padding-top: 60px;
+            /* Add padding for the navbar */
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ff7200;
+            /* Semi-transparent white background */
+            padding: 10px 0;
+            /* Add padding to top and bottom */
+            z-index: 1000;
+            /* Ensure navbar is above other content */
+        }
+
+        .navbar .icon {
+            display: inline-block;
+            margin-left: 10%;
+        }
+
+        .navbar .menu {
+            display: inline-block;
+            margin-right: 10%;
+            float: right;
+        }
+
+        .navbar .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Your additional CSS styles here */
+        .navbar .menu ul li {
+            position: relative;
+        }
+
+        .navbar .menu ul li a {
+            position: relative;
+            z-index: 1; /* Ensure links are above the pseudo-element */
+        }
+
+        .navbar .menu ul li a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 25px 35px; /* Adjust padding as needed */
+            background-color: white;
+            border-radius: 15px; /* Rounded corners */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .navbar .menu ul li a:hover::before {
+            opacity: 1;
+            width: fit-content; /* Ensure the box fits the text perfectly */
+        }
+
+        .navbar .menu ul li a:hover {
+            color: #ff7200; /* Adjust text color on hover */
+        }
+
+
+        .section {
+            height: 100vh;
+            /* Each section takes up full viewport height */    
+            scroll-snap-align: start;
+            /* Snap behavior */
+            display: flex;
+            justify-content: space-around;
+            position: relative; /* Added */
+        }
+
+        /* Additional styling for content alignment */
+        .content {
+            text-align: right;
+        }
+
+        .about p {
+            margin-bottom: 20px;
+            font-size: 300%;
+            font-family: Lato;
+        }
+
+        .item a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .about .item:hover,
+        .faq .item:hover,
+        .more .item:hover {
+            transform: translateY(-10px);
+        }
+
+        .item1 {
+            background-image: url('fashion.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .item2 {
+            background-image: url('gadgets.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .item3 {
+            background-image: url('furniture.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .more .item h3,
+        .more .item p {
+            color: white;
+        }
+
+        .item {
+            flex: 1 1 auto;
+            /* Allow items to grow equally */
+            max-width: 30%;
+            /* Limit the width of items */
+            margin: 0 10px;
+            /* Adjust margin as needed */
+            text-align: center;
+        }
+
+        /* Animation */
+        .funky-picture-container {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            right: 0%; /* Adjusted position */
+            transform: translateY(-50%);
+            animation: popUp 0.5s infinite alternate; /* Added animation */
+        }
+
+        @keyframes popUp {
+            0% {
+                transform: translateY(-10px) scale(1.1); /* Adjusted initial position and scale */
+            }
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .funky-picture {
+            width: 150px; /* Adjusted size */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%; /* Rounded corners */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <div class="logo-container">
+                    <h2 class="logo">BargainHunt</h2>
+                </div>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#more">MORE</a></li>
+                    <li><a href="howpage.html" target="_blank">HOW?</a></li>
+                    <li><a href="final_feedback.html" target="_blank">FEEDBACK</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="section" id="home">
+            <div class="content">
+                <!-- Home Section Content -->
+                <h1>Indulge <br><span id="typingEffectSpan"> </span><br>with Bargain Hunt</h1>
+                <p class="par">Fill out a quick form, set your budget, and let Bargain Hunt
+                    track prices for you. <br> Get ready for email alerts when prices match your sweet spot.
+                    <br> Join the ranks of happy shoppers who enjoy stress-free, wallet-friendly shopping experiences.
+                </p>
+                <button class="cn"><a href="fwd_final.html" target="_blank">JOIN US</a></button>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="section" id="about" style="background-color: #f5f5dc;">
+            <div class="content" style="text-align: left;  margin-left: 3%;padding: 0%;">
+                <!-- About Section Content -->
+                <h2 style="color:orangered; font-size: 300;font-family: Playfair Display, sans-serif; font-size: 400%;margin-bottom: 20px;width: 100%; flex: 1 1 25%; padding-top:  0%;">ABOUT US</h2>
+                <div class="container" style="color:black">
+                    <br>
+                    <br>
+                    <p style="font-family:fantasy"> 
+                        <div style="float: right; margin-left: 30px; margin-right: 5px; margin-bottom: 10px;">
+                            <img src="https://f.hubspotusercontent40.net/hubfs/9253440/Google%20Drive%20Integration/Delivery%20URL%20-%20BetterUp%20-%20importance%20of%20teamwork%20%5BARTICLE%5D-3.jpeg" alt="unavailable" width="400px" height="310px">
+                        </div>
+                        
+                        Welcome to BargainFinder, your ultimate destination for finding the best bargains on the products you love. <br>At BargainFinder, we understand the thrill of a good deal and the satisfaction of saving money without compromising on quality. <br>
+
+                        Our mission is simple: to empower shoppers like you to make informed purchasing decisions by providing a platform that aggregates the best deals across various retailers. <br> Whether you're looking for electronics, fashion, home goods, or any other product, BargainFinder is here to help you uncover hidden gems and unbeatable discounts. <br>
+
+                        What sets BargainFinder apart is our commitment to transparency and convenience. <br>Our team of dedicated bargain hunters scours the web to handpick deals, ensuring that only the most valuable and trustworthy offers make it to your screen. <br> With our intuitive search and filtering options, you can easily navigate through a vast selection of deals tailored to your preferences. <br>
+                        
+                        We believe in putting the power back into the hands of the consumer. <br> By leveraging technology and data analytics, BargainFinder tracks price fluctuations and provides real-time alerts, so you never miss out on a price drop or limited-time offer. <br> Say goodbye to buyer's remorse and hello to smart shopping decisions. <br>
+
+                        Join our community of savvy shoppers and start saving today with BargainFinder. <br> Whether you're a seasoned bargain hunter or new to the world of thrifty shopping, we're here to make your shopping experience delightful, effortless, and, most importantly, budget-friendly.
+                    </p>
+                    <br>
+                    <p>Happy shopping!</p>
+                    <br>
+                    <p>The BargainHunt Team</p>
+
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="section" id="faq" style="background-color: #f5deb3; ">
+            <div class="content" style="text-align: left;margin-left: 3%;padding: 0%; color: orangered">
+                <!-- FAQ Section Content -->
+                <h2 style="font-size: 400%;">FAQ's</h2>
+                <div id="faq-content" style="font-size: 85%; color: #772222">
+                    <!-- FAQ content will be dynamically added here -->
+                </div>
+                <!-- Funky Picture Container -->
+                <div class="funky-picture-container">
+                    <img src="https://static.vecteezy.com/system/resources/previews/007/644/578/original/bulb-flat-design-illustration-shining-yellow-light-bulbon-color-background-emoji-lightbulb-with-funny-emotion-hand-drawn-illustration-creative-concept-of-idea-free-vector.jpg" alt="Funky Picture" class="funky-picture" style="width: 200px; height: auto;">
+                </div>
+
+                <!-- Form for user input -->
+                <form id="userForm">
+                    <label for="question" style="font-weight:bold; color: black;">Do you have a question:</label>
+                    <input type="text" id="question" name="question" required><br><br>
+                    <button type="submit" class="cn1" style="background-color: orangered;">Enter</button>
+                </form>
+                <!-- Link to other webpage -->
+                <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+            </div>
+        </div>
+
+
+        <!-- More Section -->
+        <div class="section" id="more" style="background-color: #f5f5dc;">
+            <div class="content" style="color: orangered; text-align: center;">
+                <!-- More Section Content -->
+                <h1 style="font-size: 350%; margin-bottom: 50px;">MORE</h1>
+                <div class="container" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+                    <div class="item item1" style="width: 30%; min-height: 300px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+                        <a href="https://www.flipkart.com/watches/wrist-watches/pr?sid=r18,f13&p[]=facets.ideal_for%255B%255D%3DCouple&p[]=facets.ideal_for%255B%255D%3DWomen&p[]=facets.ideal_for%255B%255D%3DMen%2B%2526%2BWomen&p[]=facets.ideal_for%255B%255D%3DMen&otracker=categorytree&fm=neo%2Fmerchandising&iid=M_375507cb-b597-4dd7-b52a-dae2d2891a1b_1_372UD5BXDFYS_MC.CI9JK83AKS5H&otracker=hp_rich_navigation_6_1.navigationCard.RICH_NAVIGATION_Fashion~Watches%2Band%2BAccessories_CI9JK83AKS5H&otracker1=hp_rich_navigation_PINNED_neo%2Fmerchandising_NA_NAV_EXPANDABLE_navigationCard_cc_6_L1_view-all&cid=CI9JK83AKS5H" target="_blank">
+                            <h3 style="color: white; position: absolute; top:50%; left: 17%; transform: translate(-50%, -50%);">SHOP FASHION</h3>
+
+                        </a>
+                    </div>
+                    <div class="item item2" style="width: 30%; min-height: 300px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+                        <a href="https://www.flipkart.com/search?q=apple+mobiles&sid=tyy%2C4io&as=on&as-show=on&otracker=AS_QueryStore_OrganicAutoSuggest_1_7_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_1_7_na_na_na&as-pos=1&as-type=RECENT&suggestionId=apple+mobiles%7CMobiles&requestId=74513d15-9fcc-41ea-a7e0-16499e689ee3&as-backfill=on&otracker=nmenu_sub_Electronics_0_Apple" target="_blank">
+                            <h3 style="color: white; position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);">SHOP GADGETS</h3>
+
+                        </a>
+                    </div>
+                    <div class="item item3" style="width: 30%; min-height: 300px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+                        <a href="https://www.flipkart.com/furniture/dining-tables-sets/pr?sid=wwe,ur9&otracker=nmenu_sub_Home%20%26%20Furniture_0_Dining%20Tables%20%26%20Chairs" target="_blank">
+                            <h3 style="color: white; position: absolute; top: 50%; left: 83%; transform: translate(-50%, -50%);">SHOP FURNITURE</h3>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script>
+        let url = 'https://api.sheety.co/459bcd038f36ffc952b27b5a90e867ef/faq/sheet1';
+
+        // Fetch and display FAQ data
+
+        fetch(url)
+            .then(response => response.json())
+            .then(json => {
+                let faqData = json.sheet1.slice(Math.max(json.sheet1.length - 8, 0));
+                let faqContentDiv = document.getElementById('faq-content');
+
+                faqData.forEach(faqItem => {
+                    // Create list item for each question
+                    let questionListItem = document.createElement('li');
+                    // Create heading for question
+                    let questionHeading = document.createElement('h4');
+                    questionHeading.textContent = faqItem.question;
+                    // Append heading to list item
+                    questionListItem.appendChild(questionHeading);
+                    // Create paragraph for answer
+                    let answerParagraph = document.createElement('p');
+                    answerParagraph.textContent = faqItem.answer;
+                    // Append paragraph to list item
+                    questionListItem.appendChild(answerParagraph);
+                    // Apply CSS to make list item display inline-block
+                    questionListItem.style.display = 'inline-block';
+                    questionListItem.style.marginBottom = '20px'; // Add margin between list items
+                    // Append list item to container
+                    faqContentDiv.appendChild(questionListItem);
+                });
+            });
+
+
+
+        // Function to handle form submission
+        let url1 = 'https://api.sheety.co/459bcd038f36ffc952b27b5a90e867ef/faq/sheet1';
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get user's question
+            let userQuestion = document.getElementById('question').value;
+
+            // Prepare data to be sent to backend
+            let userData = {
+                sheet1: {
+                    question: userQuestion
+                }
+            };
+
+            // Send user's question to backend
+            fetch(url1, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('User question sent successfully:', data);
+                    // Clear the form after successful submission if needed
+                    document.getElementById('question').value = '';
+                    // You can add further actions as needed
+                    window.location.href = "index.html";
+                })
+                .catch(error => {
+                    console.error('Error sending user question:', error);
+                });
+        });
+
+        // Typing effect
+        const text = "in a shopping spree";
+        let index = 0;
+        const typingSpeed = 100; // milliseconds per character
+
+        function type() {
+            const typingSpan = document.getElementById('typingEffectSpan');
+            if (index < text.length) {
+                typingSpan.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, typingSpeed);
+            }
+        }
+
+        type();
+    </script>
+</body>
+
+</html>
