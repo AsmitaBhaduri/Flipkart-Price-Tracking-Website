@@ -1,1 +1,2 @@
 # Flipkart-Price-Tracking-Website
+This project is a Flipkart Price Tracker that monitors product prices and sends email alerts when the price drops below a user-defined threshold. It utilizes web scraping with Selenium to fetch price data and SMTP to send notifications. The project is integrated with Google Sheets (Sheety API) to manage user subscriptions and provides an unsubscribe option for users.
