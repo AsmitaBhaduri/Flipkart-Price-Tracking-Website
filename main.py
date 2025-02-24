@@ -39,7 +39,7 @@ except:
 
         with smtplib.SMTP("smtp.gmail.com", port=587) as connections:
             connections.starttls()
-            connections.login(user="your-gmail-id", password="")
+            connections.login(user="your-gmail-id", password="your-gmail-password")
             connections.sendmail(from_addr="your-gmail-id", to_addrs="recepient-gmail-id", msg=msg.as_string().encode("utf-8"))
 
 else:
