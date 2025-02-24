@@ -28,19 +28,19 @@ try:
     sold = driver.find_element(By.CLASS_NAME, '_16FRp0').text
 except:
     if float_amount < 23000:
-        sender_email = "manyasah.lko@gmail.com"
+        sender_email = "your-gmail-id"
         sender_password = ""
         msg = MIMEMultipart('alternative')
         msg['From'] = sender_email
-        msg['To'] = 'manyasah12b1@gmail.com'
+        msg['To'] = 'recepient-gmail-id'
         msg['Subject'] = "Hurry!"
         html_part = MIMEText(f'<p>{title} is now {price}\n{URL_FLIPKART}<br><br><a href="https://manyasahlko.wixsite.com/bargainhunt">Unsubscribe here</a> to stop recieving notifications.</p>','html')
         msg.attach(html_part)
 
         with smtplib.SMTP("smtp.gmail.com", port=587) as connections:
             connections.starttls()
-            connections.login(user="manyasah.lko@gmail.com", password="")
-            connections.sendmail(from_addr="manyasah.lko@gmial.com", to_addrs="manyasah12b1@gmail.com", msg=msg.as_string().encode("utf-8"))
+            connections.login(user="your-gmail-id", password="")
+            connections.sendmail(from_addr="your-gmail-id", to_addrs="recepient-gmail-id", msg=msg.as_string().encode("utf-8"))
 
 else:
     print("sold out")
